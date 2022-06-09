@@ -21,8 +21,10 @@ users: any;
 
   public getUsers() {
     this.http.get('https://reqres.in/api/users').subscribe(data => {
+      //recoge la información de la API de todos los usuarios y los almacena en this.users
       this.users = data;
       this.users = this.users.data;
+
     });
 
   }

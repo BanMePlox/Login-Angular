@@ -3,6 +3,7 @@
 </div>
 <div class="container-fluid">
   <table class="table border border-3 table-striped">
+    <!-- Tabla con todos los usuarios registrados. -->
     <tr>
       <td>Avatar</td>
       <td>ID</td>
@@ -12,12 +13,13 @@
       <td>Perfil de usuario</td>
     </tr>
     <tr *ngFor="let item of users">
+      <!-- hacemos un bucle con users, que hemos traído de getUsers() y por cada uno imprimimos una columna nueva con sus datos -->
       <td><img src="{{item.avatar}}" alt=""></td>
       <td>{{item.id}}</td>
       <td>{{item.email}}</td>
       <td>{{item.first_name}}</td>
       <td>{{item.last_name}}</td>
-      <td><a [routerLink]="['/informacion-usuario/', item.id]">Ver usuario</a></td>
+      <td><a [routerLink]="['/informacion-usuario/'+item.id]">Ver usuario</a></td>
     </tr>
   </table>
 </div>

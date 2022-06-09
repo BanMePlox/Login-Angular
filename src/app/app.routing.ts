@@ -19,6 +19,8 @@ const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
+  //es necesario poner /:id para que sea un parametro
+  //si quisieramos hacer que, aunque no se ponga la id lleve a alguna página, podemos poner otra ruta, pero no va a ser el caso.
   {path: 'informacion-usuario/:id', component: InfouserComponent},
   {path: 'usuarios', component: UsuariosComponent},
   //La siguiente tiene que ser la última sí o sí, si no, las que estén debajo serán inaccesibles.

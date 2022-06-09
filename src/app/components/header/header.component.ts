@@ -12,19 +12,15 @@ export class HeaderComponent implements OnInit {
   constructor(public UsuariosService: UsuariosService) { }
 
   ngOnInit(): void {
-    this.getUserLogged();
+    //al ejecutarse header, ejecuta esta función para comprobar si el usaruio está conectado
     this.checkLog();
   }
 
-  getUserLogged() {
-    this.UsuariosService.getUser().subscribe(user => {
-      return user;
-    });
 
-  }
 
   checkLog() {
     const token = this.UsuariosService.getToken();
+    //si token está vacío, significa que no está conectado, por lo que devolverá null. de lo contrario, devuelve el token.
     if (token == "") {
       return null;
     }
@@ -32,8 +28,8 @@ export class HeaderComponent implements OnInit {
   }
 
   getUserDelogged() {
+    //desconecta al usuario llamando a logOut.
     this.UsuariosService.logOut();
-    console.log('Delogeado');
   }
 
 }
