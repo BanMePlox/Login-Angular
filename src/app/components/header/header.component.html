@@ -9,8 +9,11 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" [routerLink]="['/home']" [routerLinkActive]="['active']">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="checkLog() == null">
           <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="checkLog() != null">
+          <a class="nav-link" (click)="getUserDelogged()">Desconectar</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/usuarios']" [routerLinkActive]="['active']">Lista de usuarios</a>

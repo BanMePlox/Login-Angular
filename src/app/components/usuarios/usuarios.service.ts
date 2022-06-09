@@ -7,7 +7,7 @@ import { CookieService } from "ngx-cookie-service";
   providedIn: "root"
 })
 export class UsuariosService {
-  constructor(private http: HttpClient, private cookies: CookieService) {}
+  constructor(private http: HttpClient, private cookies: CookieService) { }
 
   login(user: any): Observable<any> {
     return this.http.post("https://reqres.in/api/login", user);
@@ -18,5 +18,17 @@ export class UsuariosService {
   }
   getToken() {
     return this.cookies.get("token");
+  }
+  getUser() {
+    return this.http.get("https://reqres.in/api/users/2");
+  }
+  getUserLogged() {
+    const token = this.getToken();
+    // Aquí iría el endpoint para devolver el usuario para un token
+  }
+
+  logOut() {
+    const token = this.getToken();
+    this.cookies.delete("token");
   }
 }
