@@ -7,7 +7,22 @@ import { CookieService } from "ngx-cookie-service";
   providedIn: "root"
 })
 export class UsuariosService {
-  constructor(private http: HttpClient, private cookies: CookieService) { }
+  email: string;
+  id: Number;
+  first_name: String;
+  last_name: String;
+  avatar: String;
+  constructor(private http: HttpClient, private cookies: CookieService) {
+    this.email = "",
+    this.id =  0,
+    this.first_name = "",
+    this.last_name = "",
+    this.avatar = ""
+   }
+
+  ngOnInit(): void {
+
+  }
 
   login(user: any): Observable<any> {
     return this.http.post("https://reqres.in/api/login", user);
@@ -30,5 +45,9 @@ export class UsuariosService {
   logOut() {
     const token = this.getToken();
     this.cookies.delete("token");
+  }
+
+  getRegisteredUsers() {
+    return this.http.get("https://reqres.in/api/users");
   }
 }

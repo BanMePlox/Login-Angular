@@ -1,1 +1,23 @@
-<p>usuarios works!</p>
+<div class="container py-5 my-2">
+  <h1 class="text-center text-decoration-underline">Lista de usuarios registrados</h1>
+</div>
+<div class="container-fluid">
+  <table class="table border border-3 table-striped">
+    <tr>
+      <td>Avatar</td>
+      <td>ID</td>
+      <td>Email</td>
+      <td>Nombre</td>
+      <td>Apellido</td>
+      <td>Perfil de usuario</td>
+    </tr>
+    <tr *ngFor="let item of users">
+      <td><img src="{{item.avatar}}" alt=""></td>
+      <td>{{item.id}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.first_name}}</td>
+      <td>{{item.last_name}}</td>
+      <td><a [routerLink]="['/informacion-usuario/', item.id]">Ver usuario</a></td>
+    </tr>
+  </table>
+</div>
