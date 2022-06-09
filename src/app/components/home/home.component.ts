@@ -31,6 +31,5 @@ export class HomeComponent implements OnInit {
 
   getUserDelogged() {
     this.UsuariosService.logOut();
-    console.log('Delogeado');
   }
 }
