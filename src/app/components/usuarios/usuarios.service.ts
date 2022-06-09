@@ -15,7 +15,7 @@ export class UsuariosService {
   constructor(private http: HttpClient, private cookies: CookieService) {
     //construimos las variables de user. el valor dado es irrelevante porque se sustituirán por los de la api
     this.email = "",
-    this.id =  0,
+    this.id =  1,
     this.first_name = "",
     this.last_name = "",
     this.avatar = ""
